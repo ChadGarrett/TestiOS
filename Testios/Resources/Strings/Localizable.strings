@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Testios
+
+  Created by Chad Garrett on 2019/07/15.
+  Copyright © 2019 Personal. All rights reserved.
+*/
+
+"test" = "test";
+
+"example_heading" = "Heading";
+"example_body" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
