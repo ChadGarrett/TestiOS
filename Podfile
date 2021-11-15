@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'Testios' do
   use_frameworks!
@@ -13,6 +13,9 @@ target 'Testios' do
   pod 'NotificationBannerSwift'
   pod 'AttributedStringBuilder'
   pod 'SkeletonView'
+  pod 'Nuke'
+  
+  pod 'SZMentionsSwift', '2.1.2'
   
   # Data
   pod 'RealmSwift'

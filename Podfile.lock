@@ -1,35 +1,38 @@
 PODS:
-  - Aardvark (3.4.1):
-    - CoreAardvark (~> 2.0)
-  - AttributedStringBuilder (1.1)
-  - CoreAardvark (2.2.1)
-  - MarqueeLabel/Swift (3.2.1)
-  - NotificationBannerSwift (2.1.0):
-    - MarqueeLabel/Swift (~> 3.2.1)
-    - SnapKit (~> 4.2.0)
-  - PureLayout (3.1.4)
-  - R.swift (5.0.3):
-    - R.swift.Library (~> 5.0.0)
-  - R.swift.Library (5.0.1)
-  - Realm (3.17.0):
-    - Realm/Headers (= 3.17.0)
-  - Realm/Headers (3.17.0)
-  - RealmSwift (3.17.0):
-    - Realm (= 3.17.0)
-  - Reusable (4.1.0):
-    - Reusable/Storyboard (= 4.1.0)
-    - Reusable/View (= 4.1.0)
-  - Reusable/Storyboard (4.1.0)
-  - Reusable/View (4.1.0)
-  - SkeletonView (1.7)
-  - SnapKit (4.2.0)
-  - SwiftyBeaver (1.7.0)
+  - Aardvark (4.0.0):
+    - CoreAardvark (~> 3.0)
+  - AttributedStringBuilder (1.2.0)
+  - CoreAardvark (3.0.1)
+  - MarqueeLabel (4.0.5)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
+  - Nuke (10.5.1)
+  - PureLayout (3.1.9)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - Realm (10.19.0):
+    - Realm/Headers (= 10.19.0)
+  - Realm/Headers (10.19.0)
+  - RealmSwift (10.19.0):
+    - Realm (= 10.19.0)
+  - Reusable (4.1.2):
+    - Reusable/Storyboard (= 4.1.2)
+    - Reusable/View (= 4.1.2)
+  - Reusable/Storyboard (4.1.2)
+  - Reusable/View (4.1.2)
+  - SkeletonView (1.25.2)
+  - SnapKit (5.0.1)
   - SwiftLint (0.45.0)
+  - SwiftyBeaver (1.9.5)
+  - SZMentionsSwift (2.1.2)
 
 DEPENDENCIES:
   - Aardvark
   - AttributedStringBuilder
   - NotificationBannerSwift
+  - Nuke
   - PureLayout
   - R.swift
   - RealmSwift
@@ -37,14 +40,16 @@ DEPENDENCIES:
   - SkeletonView
   - SwiftLint
   - SwiftyBeaver
+  - SZMentionsSwift (= 2.1.2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Aardvark
     - AttributedStringBuilder
     - CoreAardvark
     - MarqueeLabel
     - NotificationBannerSwift
+    - Nuke
     - PureLayout
     - R.swift
     - R.swift.Library
@@ -55,24 +60,27 @@ SPEC REPOS:
     - SnapKit
     - SwiftLint
     - SwiftyBeaver
+    - SZMentionsSwift
 
 SPEC CHECKSUMS:
-  Aardvark: 5f21b5bdacbcd70507fc8855d18db0464440ca93
-  AttributedStringBuilder: 974bb0a88ec8fa5f33fc9861ad13815451ebf651
-  CoreAardvark: c7d15935caf9285c4d48b3f5ddc3c1cb82c19718
-  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
-  NotificationBannerSwift: 4483919639202bec56d6bfe8f106ebc352d38bc7
-  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
-  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
-  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
-  Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
-  RealmSwift: fe733e459d60dc7b6971d4cbee2eb4854097d12c
-  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
-  SkeletonView: 7d7378731b708f8a6e6b1ffefb68cc3903f10a03
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  Aardvark: 6d84a2e9d317d3b5ff7bf9b860c6e2ccf444043c
+  AttributedStringBuilder: 3cee4ae28b8fc6eba136242f89b0ea697a3b9d55
+  CoreAardvark: 3a47ac2109c3cb3d81b1f2b53fb52a3b3fd86a1b
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
+  Nuke: 6ae28db7d24c07d040bcc52f6957b32dac23e91b
+  PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Realm: 869ab2a7e3bdfa6bf06d8723251539f504e6f602
+  RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
+  Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  SkeletonView: 820b2bbd180d7408f3f03b6462cfc3cac39d2ef2
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
+  SZMentionsSwift: 2adfa76526634e519418a71e0bb364b1cbf62a6f
 
-PODFILE CHECKSUM: 97a6106049cd308967ba4e1c404ae2dab0e48b5a
+PODFILE CHECKSUM: 8cf41c0a5697def120f512055d0c17ccbaadba99
 
 COCOAPODS: 1.11.2
