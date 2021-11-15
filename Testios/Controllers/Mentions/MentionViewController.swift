@@ -120,6 +120,14 @@ final class MentionViewController: AppViewController {
         self.mentionListener.reset()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        DispatchQueue.main.async { [tableView] in
+            tableView.reloadData()
+        }
+    }
+
     // MARK: Actions
 
     @objc private func onSend() {
@@ -206,7 +214,7 @@ final class MentionViewController: AppViewController {
     private lazy var vwText: UITextView = {
         let textView: UITextView = UITextView()
         textView.text = "Hello"
-        textView.typingAttributes = Style.body_large
+        textView.typingAttributes = Style.callout
         textView.addBorder(color: .black, width: 2)
         textView.autocapitalizationType = .sentences
         textView.delegate = self
@@ -223,9 +231,7 @@ final class MentionViewController: AppViewController {
     }()
 }
 
-extension MentionViewController: UITextViewDelegate {
-
-}
+extension MentionViewController: UITextViewDelegate {}
 
 extension MentionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -265,89 +271,6 @@ extension MentionViewController: UITableViewDelegate {
     }
 }
 
-import Reusable
-
-extension MentionViewController {
-    class MessageCell: UITableViewCell, Reusable {
-
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-            self.setupCell()
-        }
-
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
-        func setupCell() {
-            self.contentView.addSubview(self.view)
-            self.view.addDropShadow()
-        }
-
-        internal lazy var view: UIView = {
-            let view = UIView()
-//            view.layer.cornerRadius = 10
-            view.roundCorners([.bottomLeft, .bottomRight, .topLeft], radius: 10)
-            return view
-        }()
-
-        internal lazy var lblMessage: UILabel = {
-            let label = UILabel()
-            label.numberOfLines = 0
-            label.lineBreakMode = .byWordWrapping
-            return label
-        }()
-
-        internal func prepareForDisplay(text: String) {
-            self.lblMessage.attributedText = NSAttributedString(
-                string: text,
-                attributes: Style.body)
-        }
-    }
-
-    final class MessageOutgoingCell: MessageCell {
-        override func setupCell() {
-            super.setupCell()
-
-            self.view.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s, relation: .equal)
-            self.view.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.l, relation: .greaterThanOrEqual)
-            self.view.autoPinEdge(toSuperviewEdge: .right, withInset: 0, relation: .greaterThanOrEqual)
-            self.view.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s, relation: .equal)
-
-            self.view.addSubview(self.lblMessage)
-            self.lblMessage.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(all: Style.padding.s))
-        }
-
-        override func prepareForDisplay(text: String) {
-            super.prepareForDisplay(text: text)
-
-            self.lblMessage.textAlignment = .right
-            self.view.backgroundColor = UIColor.cyan
-        }
-    }
-
-    final class MessageIncomingCell: MessageCell {
-        override func setupCell() {
-            super.setupCell()
-
-            self.view.autoPinEdge(toSuperviewEdge: .top, withInset: Style.padding.s, relation: .equal)
-            self.view.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.l, relation: .greaterThanOrEqual)
-            self.view.autoPinEdge(toSuperviewEdge: .left, withInset: 0, relation: .greaterThanOrEqual)
-            self.view.autoPinEdge(toSuperviewEdge: .bottom, withInset: Style.padding.s, relation: .equal)
-
-            self.view.addSubview(self.lblMessage)
-            self.lblMessage.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(all: Style.padding.s))
-        }
-
-        override func prepareForDisplay(text: String) {
-            super.prepareForDisplay(text: text)
-
-            self.lblMessage.textAlignment = .left
-            self.view.backgroundColor = UIColor.green
-        }
-    }
-}
-
 final class Mention: CreateMention {
     var name: String
     var key: UUID
@@ -369,20 +292,5 @@ final class ChatTextBoxStyle: AttributeContainer {
     init(_ key: NSAttributedString.Key, value: Any) {
         self.name = key
         self.value = value
-    }
-}
-
-extension UIView {
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        if #available(iOS 11.0, *) {
-            clipsToBounds = true
-            layer.cornerRadius = radius
-            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
-        } else {
-            let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            layer.mask = mask
-        }
     }
 }

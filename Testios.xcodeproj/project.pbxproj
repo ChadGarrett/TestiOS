@@ -10,6 +10,8 @@
 		88A45435E43A304145C7C4BB /* Pods_Testios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B8854AB7E4EC7B24EEDCC7 /* Pods_Testios.framework */; };
 		E52E013123F14CCD001D48F5 /* MentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E013023F14CCD001D48F5 /* MentionViewController.swift */; };
 		E53859112408E73C00E7FC95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53859102408E73C00E7FC95 /* ImageViewController.swift */; };
+		E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BB2742425300D77050 /* BaseAppLabel.swift */; };
+		E54DD7C02742479700D77050 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BF2742479700D77050 /* MessageCell.swift */; };
 		E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */; };
 		E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A222DCB4FC008427B6 /* AppDelegate.swift */; };
 		E5B866A522DCB4FC008427B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A422DCB4FC008427B6 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		CCE9C52CD4265F939B315B43 /* Pods-Testios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testios/Pods-Testios.debug.xcconfig"; sourceTree = "<group>"; };
 		E52E013023F14CCD001D48F5 /* MentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionViewController.swift; sourceTree = "<group>"; };
 		E53859102408E73C00E7FC95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		E54DD7BB2742425300D77050 /* BaseAppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppLabel.swift; sourceTree = "<group>"; };
+		E54DD7BF2742479700D77050 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDatasourceController.swift; sourceTree = "<group>"; };
 		E5B8669F22DCB4FC008427B6 /* Testios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B866A222DCB4FC008427B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E52E013023F14CCD001D48F5 /* MentionViewController.swift */,
+				E54DD7BF2742479700D77050 /* MessageCell.swift */,
 			);
 			path = Mentions;
 			sourceTree = "<group>";
@@ -113,6 +118,14 @@
 				E53859102408E73C00E7FC95 /* ImageViewController.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		E54DD7BA2742424800D77050 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				E54DD7BB2742425300D77050 /* BaseAppLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		E55BFC712445B7B900B656B0 /* DiffableDatasource */ = {
@@ -277,6 +290,7 @@
 		E5B866E122DCC270008427B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E54DD7BA2742424800D77050 /* Labels */,
 				E5B866E222DCC279008427B6 /* Buttons */,
 			);
 			path = Views;
@@ -477,6 +491,8 @@
 				E5B866D322DCB998008427B6 /* MigrationService.swift in Sources */,
 				E5D584AE22E6DF1E00DCE1EC /* SkeletonViewController.swift in Sources */,
 				E5B866BA22DCB797008427B6 /* AppViewController.swift in Sources */,
+				E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */,
+				E54DD7C02742479700D77050 /* MessageCell.swift in Sources */,
 				E5D584B422E6E5BA00DCE1EC /* BlankTableCell.swift in Sources */,
 				E5B866D622DCB9B2008427B6 /* BannerService.swift in Sources */,
 				E5B866CF22DCB8A6008427B6 /* BaseObject.swift in Sources */,

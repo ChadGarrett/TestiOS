@@ -137,13 +137,13 @@ final class LabelCell: UITableViewCell, Reusable {
     // MARK: Interface
 
     internal func prepareForDisplay(text: String) {
-        self.lblHeading.attributedText = NSAttributedString(string: text, attributes: Style.heading_1)
+        self.lblHeading.attributedText = NSAttributedString(string: text, attributes: Style.heading)
     }
 
     // MARK: Subviews
 
-    private lazy var lblHeading: UILabel = {
-        let label: UILabel = UILabel()
+    private lazy var lblHeading: BaseAppLabel = {
+        let label: BaseAppLabel = BaseAppLabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

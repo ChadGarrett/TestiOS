@@ -53,18 +53,18 @@ final class SkeletonViewController: AppViewController {
         return imageView
     }()
 
-    private lazy var lblHeading: UILabel = {
-        let label = UILabel()
-        label.text = R.string.localizable.example_heading()
+    private lazy var lblHeading: BaseAppLabel = {
+        let label = BaseAppLabel()
+        label.attributedText = .init(string: R.string.localizable.example_heading(), attributes: Style.heading)
         label.isSkeletonable = true
         return label
     }()
 
-    private lazy var lblBody: UILabel = {
-        let label = UILabel()
+    private lazy var lblBody: BaseAppLabel = {
+        let label = BaseAppLabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = R.string.localizable.example_body()
+        label.attributedText = .init(string: R.string.localizable.example_body(), attributes: Style.body)
         label.isSkeletonable = true
         return label
     }()

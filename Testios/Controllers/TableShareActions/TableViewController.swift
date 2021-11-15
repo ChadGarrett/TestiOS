@@ -121,14 +121,14 @@ extension TableViewController {
         }
 
         internal func prepareForDisplay(data: String) {
-            self.lblHeading.attributedText = NSAttributedString(string: data, attributes: Style.heading_1)
+            self.lblHeading.attributedText = NSAttributedString(string: data, attributes: Style.heading)
             self.selectedBackgroundView = self.selectedBackground
         }
 
         // Subviews
 
-        private lazy var lblHeading: UILabel = {
-            let label = UILabel()
+        private lazy var lblHeading: BaseAppLabel = {
+            let label = BaseAppLabel()
             label.numberOfLines = 0
             label.lineBreakMode = .byWordWrapping
             return label
