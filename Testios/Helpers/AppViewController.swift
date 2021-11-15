@@ -31,4 +31,15 @@ class AppViewController: UIViewController {
             self?.navigationController?.pushViewController(controller, animated: animated)
         }
     }
+
+    // MARK: - Overides
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view.setNeedsLayout()
+            self?.view.layoutIfNeeded()
+        }
+    }
 }

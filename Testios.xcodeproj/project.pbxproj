@@ -12,6 +12,8 @@
 		E53859112408E73C00E7FC95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53859102408E73C00E7FC95 /* ImageViewController.swift */; };
 		E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BB2742425300D77050 /* BaseAppLabel.swift */; };
 		E54DD7C02742479700D77050 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BF2742479700D77050 /* MessageCell.swift */; };
+		E54DD7C227424AFB00D77050 /* PureLayout+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C127424AFB00D77050 /* PureLayout+App.swift */; };
+		E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */; };
 		E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */; };
 		E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A222DCB4FC008427B6 /* AppDelegate.swift */; };
 		E5B866A522DCB4FC008427B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A422DCB4FC008427B6 /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		E53859102408E73C00E7FC95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		E54DD7BB2742425300D77050 /* BaseAppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppLabel.swift; sourceTree = "<group>"; };
 		E54DD7BF2742479700D77050 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		E54DD7C127424AFB00D77050 /* PureLayout+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PureLayout+App.swift"; sourceTree = "<group>"; };
+		E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderView.swift; sourceTree = "<group>"; };
 		E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDatasourceController.swift; sourceTree = "<group>"; };
 		E5B8669F22DCB4FC008427B6 /* Testios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B866A222DCB4FC008427B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,14 @@
 				E54DD7BB2742425300D77050 /* BaseAppLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		E54DD7C327424D9100D77050 /* TableViewHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */,
+			);
+			path = TableViewHeaders;
 			sourceTree = "<group>";
 		};
 		E55BFC712445B7B900B656B0 /* DiffableDatasource */ = {
@@ -215,6 +227,7 @@
 				E5B866C622DCB857008427B6 /* UIEdgeInsets+App.swift */,
 				E5B866C822DCB86C008427B6 /* String+App.swift */,
 				E5D584B522E736B800DCE1EC /* UIAlertController+App.swift */,
+				E54DD7C127424AFB00D77050 /* PureLayout+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +303,7 @@
 		E5B866E122DCC270008427B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E54DD7C327424D9100D77050 /* TableViewHeaders */,
 				E54DD7BA2742424800D77050 /* Labels */,
 				E5B866E222DCC279008427B6 /* Buttons */,
 			);
@@ -487,6 +501,7 @@
 				E5B866A522DCB4FC008427B6 /* ViewController.swift in Sources */,
 				E5B866BE22DCB7E2008427B6 /* StyleHelper.swift in Sources */,
 				E5B866C722DCB857008427B6 /* UIEdgeInsets+App.swift in Sources */,
+				E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */,
 				E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */,
 				E5B866D322DCB998008427B6 /* MigrationService.swift in Sources */,
 				E5D584AE22E6DF1E00DCE1EC /* SkeletonViewController.swift in Sources */,
@@ -505,6 +520,7 @@
 				E5B866E422DCC298008427B6 /* AppButton.swift in Sources */,
 				E5D584B122E6E13800DCE1EC /* TableViewController.swift in Sources */,
 				E5B866E022DCBAC2008427B6 /* R.generated.swift in Sources */,
+				E54DD7C227424AFB00D77050 /* PureLayout+App.swift in Sources */,
 				E5B866BC22DCB7B8008427B6 /* AppView.swift in Sources */,
 				E5B866C522DCB849008427B6 /* Date+App.swift in Sources */,
 				E5B866B722DCB688008427B6 /* HomeViewController.swift in Sources */,

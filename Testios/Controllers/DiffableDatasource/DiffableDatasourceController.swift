@@ -18,8 +18,8 @@ final class DiffableDatasourceController: AppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.register(cellType: LabelCell.self)
         self.tableView.dataSource = self.dataSource
+        self.tableView.delegate = self
 
         self.view.addSubview(self.btnUpdate)
         self.btnUpdate.autoPinEdge(toSuperviewSafeArea: .bottom)
@@ -50,8 +50,8 @@ final class DiffableDatasourceController: AppViewController {
         }
     }
 
-    enum Section: CaseIterable {
-        case friends
+    enum Section: Int, CaseIterable {
+        case friends = 0
         case family
     }
 
@@ -69,8 +69,8 @@ final class DiffableDatasourceController: AppViewController {
         return UITableViewDiffableDataSource(
             tableView: tableView,
             cellProvider: { tableView, indexPath, contact in
-                let cell: LabelCell = tableView.dequeueReusableCell(for: indexPath)
-                cell.prepareForDisplay(text: contact.name)
+                let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "tvc", for: indexPath)
+                cell.textLabel?.attributedText = .init(string: contact.name, attributes: Style.body)
                 return cell
             }
         )
@@ -94,7 +94,11 @@ final class DiffableDatasourceController: AppViewController {
 
     // MARK: Subviews
 
-    private let tableView: UITableView = UITableView()
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tvc")
+        return tableView
+    }()
 
     private lazy var btnUpdate: GenericButton = {
         let button = GenericButton("Update")
@@ -117,35 +121,21 @@ final class DiffableDatasourceController: AppViewController {
 
         self.update(with: list)
     }
+
 }
 
-final class LabelCell: UITableViewCell, Reusable {
+extension DiffableDatasourceController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let section = Section(rawValue: section)
+        else { return nil }
 
-    // MARK: Setup
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        self.contentView.addSubview(self.lblHeading)
-        self.lblHeading.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(all: Style.padding.s))
+        return self.getHeaderView(for: section)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func getHeaderView(for section: Section) -> UIView {
+        switch section {
+        case .friends: return BaseTableViewHeaderView.configure(with: "Friends")
+        case .family: return BaseTableViewHeaderView.configure(with: "Family")
+        }
     }
-
-    // MARK: Interface
-
-    internal func prepareForDisplay(text: String) {
-        self.lblHeading.attributedText = NSAttributedString(string: text, attributes: Style.heading)
-    }
-
-    // MARK: Subviews
-
-    private lazy var lblHeading: BaseAppLabel = {
-        let label: BaseAppLabel = BaseAppLabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
 }
