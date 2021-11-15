@@ -10,14 +10,14 @@ import UIKit
 
 extension UIEdgeInsets {
     /// Inset all sides with the same amount
-    init(inset: CGFloat) {
+    init(all inset: CGFloat) {
         self.init(
             top: inset,
             left: inset,
             bottom: inset,
             right: inset)
     }
-    
+
     init(insetHorizontal: CGFloat, insetVertical: CGFloat) {
         self.init(
             top: insetVertical,

@@ -24,6 +24,7 @@ PODS:
   - SkeletonView (1.7)
   - SnapKit (4.2.0)
   - SwiftyBeaver (1.7.0)
+  - SwiftLint (0.45.0)
 
 DEPENDENCIES:
   - Aardvark
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RealmSwift
   - Reusable
   - SkeletonView
+  - SwiftLint
   - SwiftyBeaver
 
 SPEC REPOS:
@@ -51,6 +53,7 @@ SPEC REPOS:
     - Reusable
     - SkeletonView
     - SnapKit
+    - SwiftLint
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
@@ -68,7 +71,8 @@ SPEC CHECKSUMS:
   SkeletonView: 7d7378731b708f8a6e6b1ffefb68cc3903f10a03
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
 
 PODFILE CHECKSUM: 97a6106049cd308967ba4e1c404ae2dab0e48b5a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.11.2

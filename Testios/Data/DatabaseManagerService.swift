@@ -11,18 +11,17 @@ import RealmSwift
 /// Base class for interacting with realm
 /// To add different objects, inherit from this with custom CRUD implementations
 class DatabaseManagerService {
-    
+
     internal var database: Realm
-    
+
     internal init() {
         database = try! Realm()
     }
-    
+
     /// Resets/clears the database
-    func deleteAllFromDatabase()  {
-        try! self.database.write {
+    func deleteAllFromDatabase() {
+        try? self.database.write {
             database.deleteAll()
         }
     }
 }
-

@@ -17,6 +17,7 @@ target 'Testios' do
   # Data
   pod 'RealmSwift'
   pod 'R.swift'
+  pod 'SwiftLint'
   
   # Debuging and Logging
   pod 'Aardvark'
