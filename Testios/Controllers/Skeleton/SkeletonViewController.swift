@@ -79,7 +79,7 @@ final class SkeletonViewController: AppViewController {
     // Actions
 
     @objc private func onToggle() {
-        if self.imageView.isSkeletonActive {
+        if self.imageView.sk.isSkeletonActive {
             self.view.hideSkeleton()
         } else {
             let gradient = SkeletonGradient(baseColor: UIColor.silver)

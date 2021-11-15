@@ -145,7 +145,7 @@ final class MentionViewController: AppViewController {
     // MARK: Property listeners
 
     private func messagesDidUpdate() {
-        let lastRow: Int = (messages.count > 0) ? self.messages.count-1 : 0
+        let lastRow: Int = (!messages.isEmpty) ? self.messages.count-1 : 0
         let lastIndexPath: IndexPath = IndexPath(row: lastRow, section: 0)
 
         DispatchQueue.main.async { [weak self] in

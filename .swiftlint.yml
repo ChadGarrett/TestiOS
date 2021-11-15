@@ -30,6 +30,7 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - vertical_parameter_alignment_on_call # Function parameters should be aligned vertically if they’re in multiple lines in a method call
   - unused_declaration # Declarations should be referenced at least once within all files linted
   - empty_string # Prefer checking isEmpty over comparing string to an empty string literal
+  - empty_count
   - contains_over_first_not_nil # Prefer contains over first(where:) != nil and firstIndex(where:) != nil
   - sorted_imports # Imports should be sorted alphabetically
   - sorted_first_last # Prefer using min() or max() over sorted().first or sorted().last
