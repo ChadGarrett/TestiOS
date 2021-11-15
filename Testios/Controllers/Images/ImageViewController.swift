@@ -7,8 +7,12 @@
 //
 
 import Nuke
+import SwiftyBeaver
 
+/// Controller to test using Nuke to load and display images
 final class ImageViewController: AppViewController {
+
+    private let avatarUrlString = "https://i.pravatar.cc/300"
 
     override func setupView() {
         super.setupView()
@@ -31,12 +35,38 @@ final class ImageViewController: AppViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if let url = URL(string: "https://staging-img.kalido-api.com/kalido-media/2801/290520190233164F31B053-2F81-40FA-A495-B003F277FB2B.jpg") {
+        // Basic nuke usage
+        if let url = URL(string: self.avatarUrlString) {
             Nuke.loadImage(with: url, into: self.imgView1)
         }
 
-        if let url = URL(string: "https://staging-img.kalido-api.com/kalido-media/auto-generated-kalido/lauren-mancke-63448-unsplash.jpg") {
+        // Most available options
+        // TODO: Experiment with the image processors
+        if let url = URL(string: self.avatarUrlString) {
             Nuke.loadImage(with: url, into: self.imgView2)
+            Nuke.loadImage(
+                with: url,
+                options: .init(
+                    placeholder: nil,
+                    transition: .some(.fadeIn(duration: 0.5)),
+                    failureImage: nil,
+                    failureImageTransition: nil,
+                    contentModes: nil,
+                    tintColors: nil),
+                into: self.imgView2,
+                progress: { _, completed, total in
+                    SwiftyBeaver.info("Image load at: \(completed)/\(total)")
+                },
+                completion: { result in
+                    switch result {
+                    case .success(let response):
+                        SwiftyBeaver.info("Finished loading image")
+                        SwiftyBeaver.verbose(response)
+
+                    case .failure(let error):
+                        SwiftyBeaver.error("Unable to load image", error.localizedDescription)
+                    }
+                })
         }
     }
 

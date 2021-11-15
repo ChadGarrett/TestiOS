@@ -32,6 +32,13 @@ class AppViewController: UIViewController {
         }
     }
 
+    /// Runs the given func on the main thread
+    internal func onMain(_ block: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            block()
+        }
+    }
+
     // MARK: - Overides
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Personal. All rights reserved.
 //
 
+import Fakery
 import Reusable
 import UIKit
 
@@ -31,23 +32,39 @@ final class DiffableDatasourceController: AppViewController {
         self.tableView.autoPinEdge(toSuperviewEdge: .left)
         self.tableView.autoPinEdge(toSuperviewEdge: .right)
         self.tableView.autoPinEdge(.bottom, to: .top, of: self.btnUpdate)
+    }
 
-        let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            var list: ContactList = ContactList(friends: [], family: [])
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-            list.friends.append(contentsOf: [
-                .init(name: "chad", surname: "garrett"),
-                .init(name: "ime", surname: "du plessis")
+        // Generate and display initial data
+        self.generateInitialData()
+    }
+
+    private func generateInitialData() {
+        self.contactList = ContactList(
+            friends: [
+                self.getPerson(),
+                self.getPerson(),
+                self.getPerson()
+            ],
+            family: [
+                self.getPerson(),
+                self.getPerson(),
+                self.getPerson()
             ])
+    }
 
-            list.family.append(contentsOf: [
-                .init(name: "page", surname: "garrett"),
-                .init(name: "clive", surname: "garrett")
-            ])
+    /// Generates a random fake person
+    private func getPerson() -> Contact {
+        let faker = Faker()
+        return .init(name: faker.name.firstName(), surname: faker.name.lastName())
+    }
 
-            self.update(with: list)
-        }
+    // MARK: - Data
+
+    private var contactList: ContactList = ContactList(friends: [], family: []) {
+        didSet { self.contactListDidUpdate() }
     }
 
     enum Section: Int, CaseIterable {
@@ -76,20 +93,20 @@ final class DiffableDatasourceController: AppViewController {
         )
     }
 
-    private func update(with list: ContactList, animate: Bool = true) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Contact>()
-        snapshot.appendSections(Section.allCases)
-
-        snapshot.appendItems(list.friends, toSection: .friends)
-        snapshot.appendItems(list.family, toSection: .family)
-
-        self.dataSource.apply(snapshot, animatingDifferences: animate)
+    private func contactListDidUpdate() {
+        self.update()
     }
 
-    func remove(_ contact: Contact, animate: Bool = true) {
-        var snapshot = dataSource.snapshot()
-        snapshot.deleteItems([contact])
-        self.dataSource.apply(snapshot, animatingDifferences: animate)
+    private func update(animate: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Contact>()
+        snapshot.appendSections([.friends, .family])
+
+        snapshot.appendItems(self.contactList.friends, toSection: .friends)
+        snapshot.appendItems(self.contactList.family, toSection: .family)
+
+        DispatchQueue.main.async { [dataSource] in
+            dataSource.apply(snapshot, animatingDifferences: animate)
+        }
     }
 
     // MARK: Subviews
@@ -102,29 +119,25 @@ final class DiffableDatasourceController: AppViewController {
 
     private lazy var btnUpdate: GenericButton = {
         let button = GenericButton("Update")
+        button.backgroundColor = Style.colors.asbestos
         button.addTarget(self, action: #selector(onUpdate), for: .touchUpInside)
         return button
     }()
 
     @objc private func onUpdate() {
-        var list: ContactList = ContactList(friends: [], family: [])
+        let listDecider = Int.random(in: 1...100)
 
-        list.friends.append(contentsOf: [
-            .init(name: "chad", surname: "garrett"),
-            .init(name: "ime", surname: "du plessis")
-        ])
-
-        list.family.append(contentsOf: [
-            .init(name: "page", surname: "garrett"),
-            .init(name: "clive", surname: "garrett")
-        ])
-
-        self.update(with: list)
+        let person = self.getPerson()
+        listDecider%2 == 0
+            ? self.contactList.family.append(person)
+            : self.contactList.friends.append(person)
     }
-
 }
 
 extension DiffableDatasourceController: UITableViewDelegate {
+
+    // MARK: Table view header
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let section = Section(rawValue: section)
         else { return nil }
@@ -136,6 +149,18 @@ extension DiffableDatasourceController: UITableViewDelegate {
         switch section {
         case .friends: return BaseTableViewHeaderView.configure(with: "Friends")
         case .family: return BaseTableViewHeaderView.configure(with: "Family")
+        }
+    }
+
+    // MARK: Table view select
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section)
+        else { return }
+
+        switch section {
+        case .friends: self.contactList.friends.remove(at: indexPath.row)
+        case .family: self.contactList.family.remove(at: indexPath.row)
         }
     }
 }

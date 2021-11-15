@@ -7,20 +7,44 @@
 //
 
 import Foundation
+import SwiftyBeaver
 import UIKit
 
+/// Controller to test add custom activities to the share controller
 final class ActivityController: AppViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
 
+        self.view.addSubview(self.lblHeading)
+        self.lblHeading.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.lblHeading.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
+        self.lblHeading.autoAlignAxis(.horizontal, toSameAxisOf: self.view)
+
         self.view.addSubview(self.btnAction)
-        self.btnAction.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(all: Style.padding.xl))
+        self.btnAction.autoPinEdge(.top, to: .bottom, of: self.lblHeading, withOffset: Style.padding.m)
+        self.btnAction.autoPinEdge(toSuperviewEdge: .left, withInset: Style.padding.s)
+        self.btnAction.autoPinEdge(toSuperviewEdge: .right, withInset: Style.padding.s)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private lazy var lblHeading: UILabel = {
+        let label = BaseAppLabel()
+        label.attributedText = .init(
+            string: """
+                The func of this screen is to add custom activities to the activity view controller
+                for the user to select when it is presented. This can allow the developer to give the user
+                additional options from within the app, such as saving something from the app to notes,
+                opening in another app, or triggering another flow within the current app
+                """,
+            attributes: Style.heading)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
 
     private lazy var btnAction: ConfirmButton = {
         let button = ConfirmButton("Action")
@@ -32,19 +56,26 @@ final class ActivityController: AppViewController {
 
     @objc private func onShare() {
         let customActivity1 = CustomActivity(title: "Action1", image: R.image.dogIcon60x60(), performAction: { _ in
-            print("yay")
+            SwiftyBeaver.info("User selected option 1")
         })
 
-        let customActivity2 = CustomActivity(title: "Action2", image: R.image.dogIcon60x60(), performAction: { _ in
-            print("yay")
+        let customActivity2 = CustomActivity(title: "Shake the button", image: R.image.dogIcon60x60(), performAction: { _ in
+            SwiftyBeaver.info("User selected option 2")
+            self.btnAction.shake()
         })
 
-        let customActivity3 = CustomActivity(title: "Action3", image: R.image.dogIcon60x60(), performAction: { _ in
-            print("yay")
+        let customActivity3 = CustomActivity(title: "Make the screen green", image: R.image.dogIcon60x60(), performAction: { _ in
+            SwiftyBeaver.info("User selected option 3")
+            self.view.backgroundColor = .green
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.view.backgroundColor = .white
+            }
         })
 
-        let activitController = UIActivityViewController(activityItems: [], applicationActivities: [customActivity1, customActivity2, customActivity3])
+        let activityController = UIActivityViewController(activityItems: ["www.google.com"], applicationActivities: [customActivity1, customActivity2, customActivity3])
 
+        // Examples of all the available options
         let exludedActivities: [UIActivity.ActivityType] = [
             .addToReadingList,
             .airDrop,
@@ -63,8 +94,8 @@ final class ActivityController: AppViewController {
             .saveToCameraRoll
         ]
 
-        activitController.excludedActivityTypes = exludedActivities
-        self.present(activitController, animated: true, completion: nil)
+        activityController.excludedActivityTypes = exludedActivities
+        self.present(activityController, animated: true, completion: nil)
     }
 }
 

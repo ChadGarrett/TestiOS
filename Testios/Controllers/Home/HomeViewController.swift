@@ -28,7 +28,6 @@ final class HomeViewController: AppViewController {
         let buttons: [GenericButton] = [
             self.btnSkeletonView,
             self.btnTableView,
-            self.btnCustomActionsheet,
             self.btnActivityController,
             self.btnMentions,
             self.btnImages,
@@ -48,19 +47,6 @@ final class HomeViewController: AppViewController {
 
     @objc private func onTableView() {
         self.route(to: TableViewController())
-    }
-
-    @objc private func onCustomActionsheet() {
-        let actionSheet = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-
-        let customView = UIView()
-        customView.backgroundColor = Style.colors.carrot
-        actionSheet.view.addSubview(customView)
-        customView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 10, bottom: 75, right: 10))
-        actionSheet.view.autoSetDimension(.height, toSize: 205)
-        actionSheet.addCancelAction()
-
-        self.present(actionSheet, animated: true, completion: nil)
     }
 
     @objc private func onActivityController() {
@@ -103,13 +89,6 @@ final class HomeViewController: AppViewController {
         return button
     }()
 
-    private lazy var btnCustomActionsheet: GenericButton = {
-        let button = GenericButton("Custom actionsheet")
-        button.addTarget(self, action: #selector(onCustomActionsheet), for: .touchUpInside)
-        button.backgroundColor = Style.colors.turquoise
-        return button
-    }()
-
     private lazy var btnActivityController: GenericButton = {
         let button = GenericButton("Activity controller")
         button.addTarget(self, action: #selector(onActivityController), for: .touchUpInside)
@@ -134,7 +113,7 @@ final class HomeViewController: AppViewController {
     private lazy var btnDiffableDatasource: GenericButton = {
         let button = GenericButton("Diffable datasource")
         button.addTarget(self, action: #selector(onDiffableDatasource), for: .touchUpInside)
-        button.backgroundColor = Style.colors.pumice
+        button.backgroundColor = Style.colors.peterRiver
         return button
     }()
 }

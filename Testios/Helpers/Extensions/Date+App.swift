@@ -28,6 +28,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    /// Tuesday, Jul 9, 10:03
     var weekdayMonthDayHourMinute: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, HH:mm"

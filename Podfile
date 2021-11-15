@@ -24,6 +24,7 @@ target 'Testios' do
   pod 'RealmSwift'
   pod 'R.swift'
   pod 'SwiftLint'
+  pod 'Fakery'
   
   # Debuging and Logging
   pod 'Aardvark'
