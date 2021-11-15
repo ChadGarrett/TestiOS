@@ -31,9 +31,6 @@
 		E5B866C522DCB849008427B6 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866C422DCB849008427B6 /* Date+App.swift */; };
 		E5B866C722DCB857008427B6 /* UIEdgeInsets+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866C622DCB857008427B6 /* UIEdgeInsets+App.swift */; };
 		E5B866C922DCB86C008427B6 /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866C822DCB86C008427B6 /* String+App.swift */; };
-		E5B866CF22DCB8A6008427B6 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866CE22DCB8A6008427B6 /* BaseObject.swift */; };
-		E5B866D122DCB973008427B6 /* DatabaseManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866D022DCB973008427B6 /* DatabaseManagerService.swift */; };
-		E5B866D322DCB998008427B6 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866D222DCB998008427B6 /* MigrationService.swift */; };
 		E5B866D622DCB9B2008427B6 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866D522DCB9B2008427B6 /* BannerService.swift */; };
 		E5B866DB22DCB9EA008427B6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B866DA22DCB9EA008427B6 /* Localizable.strings */; };
 		E5B866DD22DCB9FD008427B6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B866DC22DCB9FD008427B6 /* Media.xcassets */; };
@@ -74,9 +71,6 @@
 		E5B866C422DCB849008427B6 /* Date+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+App.swift"; sourceTree = "<group>"; };
 		E5B866C622DCB857008427B6 /* UIEdgeInsets+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+App.swift"; sourceTree = "<group>"; };
 		E5B866C822DCB86C008427B6 /* String+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+App.swift"; sourceTree = "<group>"; };
-		E5B866CE22DCB8A6008427B6 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
-		E5B866D022DCB973008427B6 /* DatabaseManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerService.swift; sourceTree = "<group>"; };
-		E5B866D222DCB998008427B6 /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		E5B866D522DCB9B2008427B6 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
 		E5B866DA22DCB9EA008427B6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E5B866DC22DCB9FD008427B6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -176,7 +170,6 @@
 				E5B866E122DCC270008427B6 /* Views */,
 				E5B866D722DCB9C1008427B6 /* Resources */,
 				E5B866D422DCB9A7008427B6 /* Services */,
-				E5B866CA22DCB882008427B6 /* Data */,
 				E5B866B822DCB78B008427B6 /* Helpers */,
 				E5B866B422DCB677008427B6 /* Controllers */,
 				E5B866A222DCB4FC008427B6 /* AppDelegate.swift */,
@@ -235,40 +228,6 @@
 				E52DDD102742FB0000160F7A /* CGSize+App.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E5B866CA22DCB882008427B6 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				E5B866CD22DCB895008427B6 /* Types */,
-				E5B866CC22DCB88D008427B6 /* Contexts */,
-				E5B866CB22DCB888008427B6 /* Models */,
-				E5B866D022DCB973008427B6 /* DatabaseManagerService.swift */,
-				E5B866D222DCB998008427B6 /* MigrationService.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		E5B866CB22DCB888008427B6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E5B866CE22DCB8A6008427B6 /* BaseObject.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E5B866CC22DCB88D008427B6 /* Contexts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Contexts;
-			sourceTree = "<group>";
-		};
-		E5B866CD22DCB895008427B6 /* Types */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Types;
 			sourceTree = "<group>";
 		};
 		E5B866D422DCB9A7008427B6 /* Services */ = {
@@ -511,14 +470,12 @@
 				E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */,
 				E52DDD0F2742F0AE00160F7A /* BlankCollectionCell.swift in Sources */,
 				E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */,
-				E5B866D322DCB998008427B6 /* MigrationService.swift in Sources */,
 				E5D584AE22E6DF1E00DCE1EC /* SkeletonViewController.swift in Sources */,
 				E5B866BA22DCB797008427B6 /* AppViewController.swift in Sources */,
 				E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */,
 				E54DD7C02742479700D77050 /* MessageCell.swift in Sources */,
 				E5D584B422E6E5BA00DCE1EC /* BlankTableCell.swift in Sources */,
 				E5B866D622DCB9B2008427B6 /* BannerService.swift in Sources */,
-				E5B866CF22DCB8A6008427B6 /* BaseObject.swift in Sources */,
 				E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */,
 				E5B866C922DCB86C008427B6 /* String+App.swift in Sources */,
 				E5B866C122DCB818008427B6 /* UIView+App.swift in Sources */,
@@ -534,7 +491,6 @@
 				E5B866B722DCB688008427B6 /* HomeViewController.swift in Sources */,
 				E5D584B822E9A15A00DCE1EC /* ActivityController.swift in Sources */,
 				E53859112408E73C00E7FC95 /* ImageViewController.swift in Sources */,
-				E5B866D122DCB973008427B6 /* DatabaseManagerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
