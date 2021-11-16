@@ -54,7 +54,7 @@ final class HomeViewController: AppViewController {
     }
 
     @objc private func onMentions() {
-        self.route(to: MentionViewController())
+        self.route(to: ChatAndMentionController())
     }
 
     @objc private func onImages() {
@@ -97,7 +97,7 @@ final class HomeViewController: AppViewController {
     }()
 
     private lazy var btnMentions: GenericButton = {
-        let button = GenericButton("Mentions")
+        let button = GenericButton("Chat and Mentions")
         button.addTarget(self, action: #selector(onMentions), for: .touchUpInside)
         button.backgroundColor = Style.colors.belizeHole
         return button

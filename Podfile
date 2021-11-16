@@ -21,7 +21,7 @@ target 'Testios' do
   pod 'SZMentionsSwift', '2.1.2'
   
   # Data
-#  pod 'RealmSwift'
+  pod 'RealmSwift'
   pod 'R.swift'
   pod 'SwiftLint'
   pod 'Fakery'

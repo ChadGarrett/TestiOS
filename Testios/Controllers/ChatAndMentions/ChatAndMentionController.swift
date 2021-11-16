@@ -6,48 +6,16 @@
 //  Copyright © 2020 Personal. All rights reserved.
 //
 
+import RealmSwift
 import SwiftyBeaver
 import SZMentionsSwift
 import UIKit
 
-final class Message {
-    let text: String
-
-    var mentions: [SZMentionsSwift.Mention] = []
-
-    init(text: String) {
-        self.text = text
-    }
-
-    internal func addMentions(_ mentions: [SZMentionsSwift.Mention]) {
-        self.mentions = mentions
-    }
-}
-
-final class Participant {
-    let key: UUID
-    let name: String
-
-    init(name: String) {
-        self.key = UUID()
-        self.name = name
-    }
-}
-
-final class MentionViewController: AppViewController {
+final class ChatAndMentionController: AppViewController {
 
     // MARK: Properties
 
-    private var messages: [Message] = [
-        Message(text: "Hello, how are you?"),
-        Message(text: "Good, and you?"),
-        Message(text: "The weather is good today."),
-        Message(text: "I hadn't noticed.")
-        ] {
-        didSet { self.messagesDidUpdate() }
-    }
-
-    private var participants: [Participant] = []
+    private var participants: [ChatParticipant] = []
 
     private var participantList: UIAlertController?
 
@@ -84,6 +52,12 @@ final class MentionViewController: AppViewController {
         self.setupLayout()
         self.setupParticipants()
         self.setupMentions()
+
+        self.dataProvider.start()
+    }
+
+    deinit {
+        self.dataProvider.stop()
     }
 
     private func setupLayout() {
@@ -106,13 +80,13 @@ final class MentionViewController: AppViewController {
 
     private func setupParticipants() {
         self.participants = [
-            Participant(name: "Troy"),
-            Participant(name: "Abed"),
-            Participant(name: "Jeff"),
-            Participant(name: "Britta"),
-            Participant(name: "Annie"),
-            Participant(name: "Pierce"),
-            Participant(name: "Shirley")
+            ChatParticipant(name: "Troy"),
+            ChatParticipant(name: "Abed"),
+            ChatParticipant(name: "Jeff"),
+            ChatParticipant(name: "Britta"),
+            ChatParticipant(name: "Annie"),
+            ChatParticipant(name: "Pierce"),
+            ChatParticipant(name: "Shirley")
         ]
     }
 
@@ -128,39 +102,48 @@ final class MentionViewController: AppViewController {
         }
     }
 
+    // MARK: Data
+
+    private lazy var dataProvider: BaseDataProvider<ChatMessage> = {
+        let provider = BaseDataProvider<ChatMessage>(
+            bindTo: .tableView(self.tableView),
+            basePredicate: .truePredicate,
+            filter: .truePredicate,
+            sort: [])
+        provider.updateDelegate = self
+        return provider
+    }()
+
     // MARK: Actions
 
     @objc private func onSend() {
         guard let text = self.vwText.text.trimmed.nonEmpty
             else { return }
 
+        // Gather the mentions in the chat message
         let mentions = self.mentionListener.mentions
         mentions.forEach { SwiftyBeaver.debug("\($0.object) \($0.range)") }
 
-        let message: Message = Message(text: text)
-        message.addMentions(mentions)
-        self.messages.append(message)
+        // Build a new chat message
+        let message: ChatMessage = ChatMessage()
+        message.textContent = text
+        message.senderName = self.participants.randomElement()?.name ?? ""
+
+        // Add it to the store
+        RealmInterface.add(object: message)
+
+        // Reset
         self.vwText.text = ""
         self.mentionListener.reset()
     }
 
-    private func onMention(_ participant: Participant) {
+    private func onMention(_ participant: ChatParticipant) {
         let name: String = "@\(participant.name)"
         let mention: Mention = Mention(name, key: participant.key)
         self.mentionListener.addMention(mention)
     }
 
     // MARK: Property listeners
-
-    private func messagesDidUpdate() {
-        let lastRow: Int = (!messages.isEmpty) ? self.messages.count-1 : 0
-        let lastIndexPath: IndexPath = IndexPath(row: lastRow, section: 0)
-
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-            self?.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-        }
-    }
 
     private func hideMentions() {
         self.participantList?.dismiss(animated: true, completion: nil)
@@ -231,16 +214,16 @@ final class MentionViewController: AppViewController {
     }()
 }
 
-extension MentionViewController: UITextViewDelegate {}
+extension ChatAndMentionController: UITextViewDelegate {}
 
-extension MentionViewController: UITableViewDataSource {
+extension ChatAndMentionController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+        return self.dataProvider.query().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let message = self.messages.item(at: indexPath.row)
-            else { return self.getBlankTableCell(for: indexPath) }
+        guard let message = self.dataProvider.object(at: indexPath.row)
+        else { return self.getBlankTableCell(for: indexPath) }
 
         return self.getMessageCell(for: indexPath, with: message)
     }
@@ -249,25 +232,39 @@ extension MentionViewController: UITableViewDataSource {
         return self.tableView.dequeueReusableCell(for: indexPath, cellType: BlankTableCell.self)
     }
 
-    private func getMessageCell(for indexPath: IndexPath, with message: Message) -> UITableViewCell {
+    private func getMessageCell(for indexPath: IndexPath, with message: ChatMessage) -> UITableViewCell {
         if indexPath.row % 2 == 0 {
             let cell: MessageOutgoingCell = self.tableView.dequeueReusableCell(for: indexPath)
-            cell.prepareForDisplay(text: message.text)
+            cell.prepareForDisplay(text: message.textContent)
             return cell
         } else {
             let cell: MessageIncomingCell = self.tableView.dequeueReusableCell(for: indexPath)
-            cell.prepareForDisplay(text: message.text)
+            cell.prepareForDisplay(text: message.textContent)
             return cell
         }
     }
 }
 
-extension MentionViewController: UITableViewDelegate {
+extension ChatAndMentionController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let message = self.messages.item(at: indexPath.row)
+        guard let message = self.dataProvider.object(at: indexPath.row)
             else { return }
 
-        SwiftyBeaver.verbose("Mentions: \n \(message.mentions)")
+        SwiftyBeaver.verbose("Mentions: \n \(message)")
+    }
+}
+
+extension ChatAndMentionController: DataProviderUpdateDelegate {
+    func providerDataDidUpdate<F>(_ provider: BaseDataProvider<F>) where F: BaseObject {
+        self.scrollToBottomOnNewMessage()
+    }
+
+    private func scrollToBottomOnNewMessage() {
+        DispatchQueue.main.async {
+            let lastRow: Int = (!self.dataProvider.query().isEmpty) ? self.dataProvider.query().count-1 : 0
+            let lastIndexPath: IndexPath = IndexPath(row: lastRow, section: 0)
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
     }
 }
 

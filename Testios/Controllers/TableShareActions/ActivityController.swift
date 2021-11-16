@@ -34,12 +34,7 @@ final class ActivityController: AppViewController {
     private lazy var lblHeading: UILabel = {
         let label = BaseAppLabel()
         label.attributedText = .init(
-            string: """
-                The func of this screen is to add custom activities to the activity view controller
-                for the user to select when it is presented. This can allow the developer to give the user
-                additional options from within the app, such as saving something from the app to notes,
-                opening in another app, or triggering another flow within the current app
-                """,
+            string: "The func of this screen is to add custom activities to the activity view controller for the user to select when it is presented. This can allow the developer to give the user additional options from within the app, such as saving something from the app to notes, opening in another app, or triggering another flow within the current app",
             attributes: Style.heading)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -55,8 +50,9 @@ final class ActivityController: AppViewController {
     // Actions
 
     @objc private func onShare() {
-        let customActivity1 = CustomActivity(title: "Action1", image: R.image.dogIcon60x60(), performAction: { _ in
+        let customActivity1 = CustomActivity(title: "Copy to clipboard", image: R.image.dogIcon60x60(), performAction: { _ in
             SwiftyBeaver.info("User selected option 1")
+            UIPasteboard.general.string = "Example text copied to clipboard"
         })
 
         let customActivity2 = CustomActivity(title: "Shake the button", image: R.image.dogIcon60x60(), performAction: { _ in

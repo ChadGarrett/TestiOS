@@ -10,13 +10,21 @@
 		88A45435E43A304145C7C4BB /* Pods_Testios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B8854AB7E4EC7B24EEDCC7 /* Pods_Testios.framework */; };
 		E52DDD0F2742F0AE00160F7A /* BlankCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DDD0E2742F0AE00160F7A /* BlankCollectionCell.swift */; };
 		E52DDD112742FB0000160F7A /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DDD102742FB0000160F7A /* CGSize+App.swift */; };
-		E52E013123F14CCD001D48F5 /* MentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E013023F14CCD001D48F5 /* MentionViewController.swift */; };
+		E52E013123F14CCD001D48F5 /* ChatAndMentionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E013023F14CCD001D48F5 /* ChatAndMentionController.swift */; };
 		E53859112408E73C00E7FC95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53859102408E73C00E7FC95 /* ImageViewController.swift */; };
 		E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BB2742425300D77050 /* BaseAppLabel.swift */; };
 		E54DD7C02742479700D77050 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7BF2742479700D77050 /* MessageCell.swift */; };
 		E54DD7C227424AFB00D77050 /* PureLayout+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C127424AFB00D77050 /* PureLayout+App.swift */; };
 		E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */; };
 		E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */; };
+		E58E37E12743ECFA00DD8319 /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E02743ECFA00DD8319 /* BaseDataProvider.swift */; };
+		E58E37E32743ED1400DD8319 /* ProviderQueryOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E22743ED1400DD8319 /* ProviderQueryOptions.swift */; };
+		E58E37E52743ED2800DD8319 /* DataProviderBindTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E42743ED2800DD8319 /* DataProviderBindTarget.swift */; };
+		E58E37E72743ED4600DD8319 /* BaseRealmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E62743ED4600DD8319 /* BaseRealmInterface.swift */; };
+		E58E37E92743ED6200DD8319 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E82743ED6200DD8319 /* BaseObject.swift */; };
+		E58E37EB2743EE8D00DD8319 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37EA2743EE8D00DD8319 /* ChatMessage.swift */; };
+		E58E37ED2743EF5100DD8319 /* NSPredicate+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37EC2743EF5100DD8319 /* NSPredicate+App.swift */; };
+		E58E37EF2743F2C400DD8319 /* ChatParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37EE2743F2C400DD8319 /* ChatParticipant.swift */; };
 		E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A222DCB4FC008427B6 /* AppDelegate.swift */; };
 		E5B866A522DCB4FC008427B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B866A422DCB4FC008427B6 /* ViewController.swift */; };
 		E5B866A822DCB4FC008427B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B866A622DCB4FC008427B6 /* Main.storyboard */; };
@@ -48,13 +56,21 @@
 		CCE9C52CD4265F939B315B43 /* Pods-Testios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testios/Pods-Testios.debug.xcconfig"; sourceTree = "<group>"; };
 		E52DDD0E2742F0AE00160F7A /* BlankCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionCell.swift; sourceTree = "<group>"; };
 		E52DDD102742FB0000160F7A /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
-		E52E013023F14CCD001D48F5 /* MentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionViewController.swift; sourceTree = "<group>"; };
+		E52E013023F14CCD001D48F5 /* ChatAndMentionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAndMentionController.swift; sourceTree = "<group>"; };
 		E53859102408E73C00E7FC95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		E54DD7BB2742425300D77050 /* BaseAppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppLabel.swift; sourceTree = "<group>"; };
 		E54DD7BF2742479700D77050 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E54DD7C127424AFB00D77050 /* PureLayout+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PureLayout+App.swift"; sourceTree = "<group>"; };
 		E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderView.swift; sourceTree = "<group>"; };
 		E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDatasourceController.swift; sourceTree = "<group>"; };
+		E58E37E02743ECFA00DD8319 /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
+		E58E37E22743ED1400DD8319 /* ProviderQueryOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderQueryOptions.swift; sourceTree = "<group>"; };
+		E58E37E42743ED2800DD8319 /* DataProviderBindTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBindTarget.swift; sourceTree = "<group>"; };
+		E58E37E62743ED4600DD8319 /* BaseRealmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRealmInterface.swift; sourceTree = "<group>"; };
+		E58E37E82743ED6200DD8319 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		E58E37EA2743EE8D00DD8319 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		E58E37EC2743EF5100DD8319 /* NSPredicate+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+App.swift"; sourceTree = "<group>"; };
+		E58E37EE2743F2C400DD8319 /* ChatParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatParticipant.swift; sourceTree = "<group>"; };
 		E5B8669F22DCB4FC008427B6 /* Testios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B866A222DCB4FC008427B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B866A422DCB4FC008427B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,13 +121,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E52E012F23F14CBF001D48F5 /* Mentions */ = {
+		E52E012F23F14CBF001D48F5 /* ChatAndMentions */ = {
 			isa = PBXGroup;
 			children = (
-				E52E013023F14CCD001D48F5 /* MentionViewController.swift */,
+				E52E013023F14CCD001D48F5 /* ChatAndMentionController.swift */,
 				E54DD7BF2742479700D77050 /* MessageCell.swift */,
 			);
-			path = Mentions;
+			path = ChatAndMentions;
 			sourceTree = "<group>";
 		};
 		E538590F2408E73000E7FC95 /* Images */ = {
@@ -146,6 +162,36 @@
 			path = DiffableDatasource;
 			sourceTree = "<group>";
 		};
+		E58E37DD2743ECD800DD8319 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E58E37DF2743ECE500DD8319 /* Database */,
+				E58E37DE2743ECDD00DD8319 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E58E37DE2743ECDD00DD8319 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E58E37E82743ED6200DD8319 /* BaseObject.swift */,
+				E58E37EA2743EE8D00DD8319 /* ChatMessage.swift */,
+				E58E37EE2743F2C400DD8319 /* ChatParticipant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E58E37DF2743ECE500DD8319 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E58E37E02743ECFA00DD8319 /* BaseDataProvider.swift */,
+				E58E37E22743ED1400DD8319 /* ProviderQueryOptions.swift */,
+				E58E37E42743ED2800DD8319 /* DataProviderBindTarget.swift */,
+				E58E37E62743ED4600DD8319 /* BaseRealmInterface.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		E5B8669622DCB4FC008427B6 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +213,7 @@
 		E5B866A122DCB4FC008427B6 /* Testios */ = {
 			isa = PBXGroup;
 			children = (
+				E58E37DD2743ECD800DD8319 /* Data */,
 				E5B866E122DCC270008427B6 /* Views */,
 				E5B866D722DCB9C1008427B6 /* Resources */,
 				E5B866D422DCB9A7008427B6 /* Services */,
@@ -175,7 +222,6 @@
 				E5B866A222DCB4FC008427B6 /* AppDelegate.swift */,
 				E5B866A422DCB4FC008427B6 /* ViewController.swift */,
 				E5B866A622DCB4FC008427B6 /* Main.storyboard */,
-				E5B866A922DCB4FD008427B6 /* Assets.xcassets */,
 				E5B866AB22DCB4FD008427B6 /* LaunchScreen.storyboard */,
 				E5B866AE22DCB4FD008427B6 /* Info.plist */,
 			);
@@ -187,7 +233,7 @@
 			children = (
 				E55BFC712445B7B900B656B0 /* DiffableDatasource */,
 				E538590F2408E73000E7FC95 /* Images */,
-				E52E012F23F14CBF001D48F5 /* Mentions */,
+				E52E012F23F14CBF001D48F5 /* ChatAndMentions */,
 				E5D584AF22E6E12800DCE1EC /* TableShareActions */,
 				E5D584AC22E6DF0900DCE1EC /* Skeleton */,
 				E5B866B522DCB67D008427B6 /* Home */,
@@ -226,6 +272,7 @@
 				E5D584B522E736B800DCE1EC /* UIAlertController+App.swift */,
 				E54DD7C127424AFB00D77050 /* PureLayout+App.swift */,
 				E52DDD102742FB0000160F7A /* CGSize+App.swift */,
+				E58E37EC2743EF5100DD8319 /* NSPredicate+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +306,7 @@
 		E5B866D922DCB9CC008427B6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5B866A922DCB4FD008427B6 /* Assets.xcassets */,
 				E5B866DC22DCB9FD008427B6 /* Media.xcassets */,
 			);
 			path = Images;
@@ -470,6 +518,7 @@
 				E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */,
 				E52DDD0F2742F0AE00160F7A /* BlankCollectionCell.swift in Sources */,
 				E5B866A322DCB4FC008427B6 /* AppDelegate.swift in Sources */,
+				E58E37EF2743F2C400DD8319 /* ChatParticipant.swift in Sources */,
 				E5D584AE22E6DF1E00DCE1EC /* SkeletonViewController.swift in Sources */,
 				E5B866BA22DCB797008427B6 /* AppViewController.swift in Sources */,
 				E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */,
@@ -479,15 +528,22 @@
 				E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */,
 				E5B866C922DCB86C008427B6 /* String+App.swift in Sources */,
 				E5B866C122DCB818008427B6 /* UIView+App.swift in Sources */,
-				E52E013123F14CCD001D48F5 /* MentionViewController.swift in Sources */,
+				E58E37ED2743EF5100DD8319 /* NSPredicate+App.swift in Sources */,
+				E58E37E72743ED4600DD8319 /* BaseRealmInterface.swift in Sources */,
+				E58E37EB2743EE8D00DD8319 /* ChatMessage.swift in Sources */,
+				E52E013123F14CCD001D48F5 /* ChatAndMentionController.swift in Sources */,
 				E5D584B622E736B800DCE1EC /* UIAlertController+App.swift in Sources */,
 				E5B866C322DCB82B008427B6 /* Array+App.swift in Sources */,
 				E5B866E422DCC298008427B6 /* AppButton.swift in Sources */,
 				E5D584B122E6E13800DCE1EC /* TableViewController.swift in Sources */,
 				E5B866E022DCBAC2008427B6 /* R.generated.swift in Sources */,
+				E58E37E12743ECFA00DD8319 /* BaseDataProvider.swift in Sources */,
 				E54DD7C227424AFB00D77050 /* PureLayout+App.swift in Sources */,
+				E58E37E32743ED1400DD8319 /* ProviderQueryOptions.swift in Sources */,
+				E58E37E52743ED2800DD8319 /* DataProviderBindTarget.swift in Sources */,
 				E5B866BC22DCB7B8008427B6 /* AppView.swift in Sources */,
 				E5B866C522DCB849008427B6 /* Date+App.swift in Sources */,
+				E58E37E92743ED6200DD8319 /* BaseObject.swift in Sources */,
 				E5B866B722DCB688008427B6 /* HomeViewController.swift in Sources */,
 				E5D584B822E9A15A00DCE1EC /* ActivityController.swift in Sources */,
 				E53859112408E73C00E7FC95 /* ImageViewController.swift in Sources */,

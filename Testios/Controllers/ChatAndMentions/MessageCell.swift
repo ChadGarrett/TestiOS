@@ -8,7 +8,7 @@
 
 import Reusable
 
-extension MentionViewController {
+extension ChatAndMentionController {
     class MessageCell: UITableViewCell, Reusable {
 
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

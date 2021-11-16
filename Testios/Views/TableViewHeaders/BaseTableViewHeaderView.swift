@@ -9,6 +9,7 @@
 import UIKit
 
 public class BaseTableViewHeaderView: UIView {
+    /// A simple label with a white background
     public static func configure(with text: String) -> UIView {
         let view = UIView()
         view.backgroundColor = .white
