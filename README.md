@@ -21,19 +21,19 @@ This screen is just a simple test of using [SkeletonView](https://cocoapods.org/
 
 Table view with color selection, I made this to test some issues I was having with table view selections.
 
-#### Activity
+##### Activity
 
 Used to test adding custom actions to the system share dialog (UIActivityViewController) and actions that can be performed with sharing content.
 
-#### Chat and mentions
+##### Chat and mentions
 
 Used to test a mockup of a basic chat interface with the ability to mention participants. The messages are stored locally in Realm and served via a notification listening service on the Realm database. So once objects are added to Realm the will display. Mentions aren't currently saved and just served as text. Sent messages alternate between sender/received for now.
 
-#### Images
+##### Images
 
 Used to test the library [Nuke](https://cocoapods.org/pods/Nuke) for loading and displaying remote images
 
-#### Diffable data source
+##### Diffable data source
 
 Test using a DiffableDataSource when iOS 13 was released.
 
