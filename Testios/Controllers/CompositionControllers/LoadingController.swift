@@ -33,6 +33,9 @@ final class LoadingController: UIViewController {
         // Slight delay to it starting in case data is cached or loaded very quickly
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
             DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3) {
+                    self?.view.backgroundColor = Style.colors.carrot.withAlphaComponent(0.6)
+                }
                 self?.loadingIndication.startAnimating()
             }
         }

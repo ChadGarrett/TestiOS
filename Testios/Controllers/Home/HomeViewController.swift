@@ -46,7 +46,7 @@ final class HomeViewController: AppViewController {
         let button = GenericButton(title)
         button.addTarget(self, action: #selector(onButton), for: .touchUpInside)
         button.tag = index
-        button.backgroundColor = Style.colors.asbestos
+        button.backgroundColor = self.buttonColors.randomElement()
         return button
     }
 
@@ -65,4 +65,15 @@ final class HomeViewController: AppViewController {
         stackView.distribution = UIStackView.Distribution.fillEqually
         return stackView
     }()
+
+    private lazy var buttonColors: [UIColor] = [
+        Style.colors.wetAsphalt,
+        Style.colors.hoki,
+        Style.colors.jaffa,
+        Style.colors.belizeHole,
+        Style.colors.mediumTurquoise,
+        Style.colors.lynchColor,
+        Style.colors.asbestos,
+        Style.colors.nephritis
+    ]
 }
