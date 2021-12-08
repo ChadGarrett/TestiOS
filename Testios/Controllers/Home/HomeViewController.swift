@@ -25,44 +25,35 @@ final class HomeViewController: AppViewController {
         self.view.addSubview(self.stackView)
         self.stackView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(all: Style.padding.s))
 
-        let buttons: [GenericButton] = [
-            self.btnSkeletonView,
-            self.btnTableView,
-            self.btnActivityController,
-            self.btnMentions,
-            self.btnImages,
-            self.btnDiffableDatasource
-        ]
-
-        buttons.forEach { [weak self] button in
-            self?.stackView.addArrangedSubview(button)
+        controllers.enumerated().forEach { (index, controller) in
+            let button = self.getButtonForController(controller: controller, index: index)
+            self.stackView.addArrangedSubview(button)
         }
     }
 
-    // Actions
+    private var controllers: [UIViewController] = [
+        SkeletonViewController(),
+        TableViewController(),
+        ActivityController(),
+        ChatAndMentionController(),
+        ImageViewController(),
+        DiffableDatasourceController(),
+        CompositionController()
+    ]
 
-    @objc private func onSkeletonView() {
-        self.route(to: SkeletonViewController())
+    private func getButtonForController(controller: UIViewController, index: Int) -> GenericButton {
+        let title: String = controller.title ?? String(describing: type(of: controller))
+        let button = GenericButton(title)
+        button.addTarget(self, action: #selector(onButton), for: .touchUpInside)
+        button.tag = index
+        button.backgroundColor = Style.colors.asbestos
+        return button
     }
 
-    @objc private func onTableView() {
-        self.route(to: TableViewController())
-    }
+    @objc private func onButton(_ button: UIButton) {
+        guard let controller = self.controllers.item(at: button.tag) else { return }
 
-    @objc private func onActivityController() {
-        self.route(to: ActivityController())
-    }
-
-    @objc private func onMentions() {
-        self.route(to: ChatAndMentionController())
-    }
-
-    @objc private func onImages() {
-        self.route(to: ImageViewController())
-    }
-
-    @objc private func onDiffableDatasource() {
-        self.route(to: DiffableDatasourceController())
+        self.route(to: controller)
     }
 
     // Subviews
@@ -73,47 +64,5 @@ final class HomeViewController: AppViewController {
         stackView.spacing = Style.padding.m
         stackView.distribution = UIStackView.Distribution.fillEqually
         return stackView
-    }()
-
-    private lazy var btnSkeletonView: GenericButton = {
-        let button = GenericButton("Skeleton view")
-        button.addTarget(self, action: #selector(onSkeletonView), for: .touchUpInside)
-        button.backgroundColor = Style.colors.lynchColor
-        return button
-    }()
-
-    private lazy var btnTableView: GenericButton = {
-        let button = GenericButton("Table selection")
-        button.addTarget(self, action: #selector(onTableView), for: .touchUpInside)
-        button.backgroundColor = Style.colors.nephritis
-        return button
-    }()
-
-    private lazy var btnActivityController: GenericButton = {
-        let button = GenericButton("Activity controller")
-        button.addTarget(self, action: #selector(onActivityController), for: .touchUpInside)
-        button.backgroundColor = Style.colors.wetAsphalt
-        return button
-    }()
-
-    private lazy var btnMentions: GenericButton = {
-        let button = GenericButton("Chat and Mentions")
-        button.addTarget(self, action: #selector(onMentions), for: .touchUpInside)
-        button.backgroundColor = Style.colors.belizeHole
-        return button
-    }()
-
-    private lazy var btnImages: GenericButton = {
-        let button = GenericButton("Images")
-        button.addTarget(self, action: #selector(onImages), for: .touchUpInside)
-        button.backgroundColor = Style.colors.monza
-        return button
-    }()
-
-    private lazy var btnDiffableDatasource: GenericButton = {
-        let button = GenericButton("Diffable datasource")
-        button.addTarget(self, action: #selector(onDiffableDatasource), for: .touchUpInside)
-        button.backgroundColor = Style.colors.peterRiver
-        return button
     }()
 }
