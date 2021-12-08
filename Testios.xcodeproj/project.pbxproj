@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88A45435E43A304145C7C4BB /* Pods_Testios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B8854AB7E4EC7B24EEDCC7 /* Pods_Testios.framework */; };
 		E510254127613B8000EE1C37 /* MockEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510254027613B8000EE1C37 /* MockEndpoint.swift */; };
+		E510254327613CD200EE1C37 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510254227613CD200EE1C37 /* AppError.swift */; };
 		E52DDD0F2742F0AE00160F7A /* BlankCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DDD0E2742F0AE00160F7A /* BlankCollectionCell.swift */; };
 		E52DDD112742FB0000160F7A /* CGSize+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52DDD102742FB0000160F7A /* CGSize+App.swift */; };
 		E52E013123F14CCD001D48F5 /* ChatAndMentionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52E013023F14CCD001D48F5 /* ChatAndMentionController.swift */; };
@@ -56,6 +57,7 @@
 		1296BF48ADC554974954D879 /* Pods-Testios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testios/Pods-Testios.release.xcconfig"; sourceTree = "<group>"; };
 		CCE9C52CD4265F939B315B43 /* Pods-Testios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testios/Pods-Testios.debug.xcconfig"; sourceTree = "<group>"; };
 		E510254027613B8000EE1C37 /* MockEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEndpoint.swift; sourceTree = "<group>"; };
+		E510254227613CD200EE1C37 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E52DDD0E2742F0AE00160F7A /* BlankCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionCell.swift; sourceTree = "<group>"; };
 		E52DDD102742FB0000160F7A /* CGSize+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+App.swift"; sourceTree = "<group>"; };
 		E52E013023F14CCD001D48F5 /* ChatAndMentionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAndMentionController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				E5B866B922DCB797008427B6 /* AppViewController.swift */,
 				E5B866BB22DCB7B8008427B6 /* AppView.swift */,
 				E5B866BD22DCB7E2008427B6 /* StyleHelper.swift */,
+				E510254227613CD200EE1C37 /* AppError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				E5B866BA22DCB797008427B6 /* AppViewController.swift in Sources */,
 				E54DD7BC2742425300D77050 /* BaseAppLabel.swift in Sources */,
 				E54DD7C02742479700D77050 /* MessageCell.swift in Sources */,
+				E510254327613CD200EE1C37 /* AppError.swift in Sources */,
 				E5D584B422E6E5BA00DCE1EC /* BlankTableCell.swift in Sources */,
 				E5B866D622DCB9B2008427B6 /* BannerService.swift in Sources */,
 				E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */,
