@@ -76,6 +76,8 @@ final class ChatAndMentionController: AppViewController {
 
         self.btnSend.autoPinEdge(.top, to: .bottom, of: self.vwText, withOffset: Style.padding.m)
         self.btnSend.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(all: Style.padding.l), excludingEdge: .top)
+
+        self.tableView.scrollToBottom()
     }
 
     private func setupParticipants() {
@@ -289,5 +291,12 @@ final class ChatTextBoxStyle: AttributeContainer {
     init(_ key: NSAttributedString.Key, value: Any) {
         self.name = key
         self.value = value
+    }
+}
+
+extension UITableView {
+    func scrollToBottom(of section: Int = 0) {
+        let indexPath = IndexPath(row: self.numberOfRows(inSection: section)-1, section: section)
+        self.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
 }

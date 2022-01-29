@@ -58,23 +58,28 @@ final class CompositionController: AppViewController {
 
     private lazy var lblItemView = UILabel()
 
+    private lazy var loadingController = LoadingController()
+
     // MARK: - Action
 
     @objc private func onFetchData() {
-
-        let loadingController = LoadingController()
-        self.add(loadingController)
+        self.state = .loading
         self.logicController.load { state in
-            loadingController.remove()
             self.state = state
         }
     }
 
     private func stateDidUpdate() {
         switch self.state {
-        case .presenting(let item): self.render(item: item)
-        case .error: self.handleError()
-        case .loading: break
+        case .presenting(let item):
+            self.loadingController.remove()
+            self.render(item: item)
+
+        case .error:
+            self.handleError()
+
+        case .loading:
+            self.add(self.loadingController)
         }
     }
 
@@ -85,10 +90,11 @@ final class CompositionController: AppViewController {
     }
 
     private func handleError() {
-
+        BannerService.shared.showBanner(title: "API Error", style: .danger)
     }
 }
 
+/// Logic conroller for handling  data loading
 class CompositionLogicController {
     typealias Handler = (CompositionController.State) -> Void
 
