@@ -20,7 +20,7 @@ final class ChatAndMentionController: AppViewController {
     private var participantList: UIAlertController?
 
     /// Style for text inside the textview (Only applied if mentions are enabled)
-    private var txtStyle: [AttributeContainer] {
+    private var txtStyle: [SZMentionsSwift.AttributeContainer] {
         return [
             ChatTextBoxStyle(.font, value: UIFont.systemFont(ofSize: Style.fontSize.m)),
             ChatTextBoxStyle(.foregroundColor, value: UIColor.black)
@@ -28,7 +28,7 @@ final class ChatAndMentionController: AppViewController {
     }
 
     /// Style for mentions inside the textview
-    private func mentionTextStyle(_ mention: CreateMention?) -> [AttributeContainer] {
+    private func mentionTextStyle(_ mention: CreateMention?) -> [SZMentionsSwift.AttributeContainer] {
         return [
             ChatTextBoxStyle(.font, value: UIFont.systemFont(ofSize: Style.fontSize.m+1)),
             ChatTextBoxStyle(.foregroundColor, value: UIColor.blue)
@@ -283,7 +283,7 @@ final class Mention: CreateMention {
     }
 }
 
-final class ChatTextBoxStyle: AttributeContainer {
+final class ChatTextBoxStyle: SZMentionsSwift.AttributeContainer {
     var name: NSAttributedString.Key
 
     var value: Any

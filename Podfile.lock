@@ -3,6 +3,7 @@ PODS:
     - CoreAardvark (~> 3.0)
   - AttributedStringBuilder (1.2.0)
   - CoreAardvark (3.0.1)
+  - Down (0.11.0)
   - Fakery (5.1.0)
   - MarqueeLabel (4.0.5)
   - NotificationBannerSwift (3.0.6):
@@ -32,6 +33,7 @@ PODS:
 DEPENDENCIES:
   - Aardvark
   - AttributedStringBuilder
+  - Down
   - Fakery
   - NotificationBannerSwift
   - Nuke
@@ -49,6 +51,7 @@ SPEC REPOS:
     - Aardvark
     - AttributedStringBuilder
     - CoreAardvark
+    - Down
     - Fakery
     - MarqueeLabel
     - NotificationBannerSwift
@@ -69,6 +72,7 @@ SPEC CHECKSUMS:
   Aardvark: 6d84a2e9d317d3b5ff7bf9b860c6e2ccf444043c
   AttributedStringBuilder: 3cee4ae28b8fc6eba136242f89b0ea697a3b9d55
   CoreAardvark: 3a47ac2109c3cb3d81b1f2b53fb52a3b3fd86a1b
+  Down: b6ba1bc985c9d2f4e15e3b293d2207766fa12612
   Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
@@ -85,6 +89,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
   SZMentionsSwift: 2adfa76526634e519418a71e0bb364b1cbf62a6f
 
-PODFILE CHECKSUM: 37dcaaaf64b529c22d5ddb67d379110cad3369fe
+PODFILE CHECKSUM: 61eb6cd1fb914ee62f83336b2e14c9e44b02c2a5
 
 COCOAPODS: 1.11.2

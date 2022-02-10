@@ -17,6 +17,7 @@ target 'Testios' do
   pod 'AttributedStringBuilder'
   pod 'SkeletonView'
   pod 'Nuke'
+  pod 'Down'
   
   pod 'SZMentionsSwift', '2.1.2'
   

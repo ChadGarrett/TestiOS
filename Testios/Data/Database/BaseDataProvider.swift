@@ -65,7 +65,7 @@ class BaseDataProvider<F: BaseObject> {
         }
     }
 
-    internal var sort: [SortDescriptor] = [] {
+    internal var sort: [RealmSwift.SortDescriptor] = [] {
         didSet {
             if self.sort != oldValue,
                 self.token != nil {
@@ -78,7 +78,7 @@ class BaseDataProvider<F: BaseObject> {
 
     // MARK: Setup
 
-    init(bindTo target: DataProviderBindTarget, basePredicate: NSPredicate, filter: NSPredicate, sort: [SortDescriptor]) {
+    init(bindTo target: DataProviderBindTarget, basePredicate: NSPredicate, filter: NSPredicate, sort: [RealmSwift.SortDescriptor]) {
         self.bindTarget = target
         self.basePredicate = basePredicate
         self.filter = filter

@@ -35,10 +35,11 @@ final class HomeViewController: AppViewController {
         SkeletonViewController(),
         TableViewController(),
         ActivityController(),
-        ChatAndMentionController(),
+        // ChatAndMentionController(),
         ImageViewController(),
         DiffableDatasourceController(),
-        CompositionController()
+        CompositionController(),
+        MarkdownNativeController()
     ]
 
     private func getButtonForController(controller: UIViewController, index: Int) -> GenericButton {

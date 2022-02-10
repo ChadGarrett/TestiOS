@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		E54DD7C227424AFB00D77050 /* PureLayout+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C127424AFB00D77050 /* PureLayout+App.swift */; };
 		E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */; };
 		E55BFC732445B7CF00B656B0 /* DiffableDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */; };
+		E57308B827B4FF1E003BC56A /* MarkdownNativeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57308B727B4FF1E003BC56A /* MarkdownNativeController.swift */; };
+		E57308BA27B4FF82003BC56A /* MarkdownDownPodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57308B927B4FF82003BC56A /* MarkdownDownPodController.swift */; };
 		E58E37E12743ECFA00DD8319 /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E02743ECFA00DD8319 /* BaseDataProvider.swift */; };
 		E58E37E32743ED1400DD8319 /* ProviderQueryOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E22743ED1400DD8319 /* ProviderQueryOptions.swift */; };
 		E58E37E52743ED2800DD8319 /* DataProviderBindTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E37E42743ED2800DD8319 /* DataProviderBindTarget.swift */; };
@@ -73,6 +75,8 @@
 		E54DD7C127424AFB00D77050 /* PureLayout+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PureLayout+App.swift"; sourceTree = "<group>"; };
 		E54DD7C427424DA300D77050 /* BaseTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderView.swift; sourceTree = "<group>"; };
 		E55BFC722445B7CF00B656B0 /* DiffableDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDatasourceController.swift; sourceTree = "<group>"; };
+		E57308B727B4FF1E003BC56A /* MarkdownNativeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownNativeController.swift; sourceTree = "<group>"; };
+		E57308B927B4FF82003BC56A /* MarkdownDownPodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDownPodController.swift; sourceTree = "<group>"; };
 		E58E37E02743ECFA00DD8319 /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
 		E58E37E22743ED1400DD8319 /* ProviderQueryOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderQueryOptions.swift; sourceTree = "<group>"; };
 		E58E37E42743ED2800DD8319 /* DataProviderBindTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderBindTarget.swift; sourceTree = "<group>"; };
@@ -181,6 +185,15 @@
 			path = DiffableDatasource;
 			sourceTree = "<group>";
 		};
+		E57308B627B4FF0B003BC56A /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				E57308B727B4FF1E003BC56A /* MarkdownNativeController.swift */,
+				E57308B927B4FF82003BC56A /* MarkdownDownPodController.swift */,
+			);
+			path = Markdown;
+			sourceTree = "<group>";
+		};
 		E58E37DD2743ECD800DD8319 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +263,7 @@
 		E5B866B422DCB677008427B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E57308B627B4FF0B003BC56A /* Markdown */,
 				E510253D27613B0800EE1C37 /* CompositionControllers */,
 				E55BFC712445B7B900B656B0 /* DiffableDatasource */,
 				E538590F2408E73000E7FC95 /* Images */,
@@ -435,6 +449,9 @@
 				Base,
 			);
 			mainGroup = E5B8669622DCB4FC008427B6;
+			packageReferences = (
+				E57308B527B4FDAB003BC56A /* XCRemoteSwiftPackageReference "swift-markdown" */,
+			);
 			productRefGroup = E5B866A022DCB4FC008427B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -537,7 +554,9 @@
 				E5B866A522DCB4FC008427B6 /* ViewController.swift in Sources */,
 				E5B866BE22DCB7E2008427B6 /* StyleHelper.swift in Sources */,
 				E5B866C722DCB857008427B6 /* UIEdgeInsets+App.swift in Sources */,
+				E57308B827B4FF1E003BC56A /* MarkdownNativeController.swift in Sources */,
 				E52DDD112742FB0000160F7A /* CGSize+App.swift in Sources */,
+				E57308BA27B4FF82003BC56A /* MarkdownDownPodController.swift in Sources */,
 				E54DD7C527424DA300D77050 /* BaseTableViewHeaderView.swift in Sources */,
 				E510254527613F8500EE1C37 /* LoadingController.swift in Sources */,
 				E52DDD0F2742F0AE00160F7A /* BlankCollectionCell.swift in Sources */,
@@ -780,6 +799,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E57308B527B4FDAB003BC56A /* XCRemoteSwiftPackageReference "swift-markdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "ssh://git@github.com/apple/swift-markdown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = E5B8669722DCB4FC008427B6 /* Project object */;
 }
